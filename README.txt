@@ -26,3 +26,8 @@ GitHub Pages: create a repository from the contents of this folder, push to main
 Vercel: import the separate repository or deploy this folder as the project root. vercel.json runs the studio project scanner before serving the files.
 
 The language dropdown supports English, Chinese, French, and German. The logo, face asset, viewer, and project scanner are copied into this folder.
+
+
+INSTALLING THE APP
+
+This standalone site is a Progressive Web App. Deploy it to HTTPS to install it. In Chrome or Edge on a PC, use the install icon in the address bar or the browser menu. On Android, use the browser menu and choose Install app or Add to Home screen. On iPhone or iPad, open it in Safari and choose Share > Add to Home Screen. The service worker caches the app shell and same-origin models/images after they are requested. The 3D engine is loaded from jsDelivr, so the 3D viewer requires an internet connection.
