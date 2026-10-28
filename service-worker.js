@@ -1,4 +1,4 @@
-const CACHE_NAME = "model-studio-pwa-v1";
+const CACHE_NAME = "model-studio-pwa-v13";
 const APP_FILES = [
   "./",
   "./index.html",

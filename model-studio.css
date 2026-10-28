@@ -4,3 +4,6 @@
 .photo-lightbox img{user-select:none;-webkit-user-drag:none}.photo-lightbox img[style*="scale(1."]{cursor:grab}
 
 .photo-lightbox img{position:relative;z-index:1}.photo-nav{z-index:2}.photo-zoom-tools{z-index:2}.photo-close{z-index:3}
+
+.face-toggle select{height:29px;min-width:82px;padding:0 7px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);font:inherit;font-size:10px}.face-toggle:focus-within select{outline:2px solid rgba(90,120,100,.35);outline-offset:2px}
+@media(max-width:600px){.face-toggle select{height:27px;min-width:72px;font-size:9px}}
