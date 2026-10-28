@@ -2,3 +2,5 @@
 .photo-zoom-tools{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:6px;border:1px solid rgba(255,255,255,.2);border-radius:24px;background:rgba(30,30,30,.75);z-index:2}.photo-zoom-tools button{min-width:38px;height:34px;padding:0 10px;border:0;border-radius:18px;background:rgba(255,255,255,.1);color:#fff;font:inherit;font-size:18px;cursor:pointer}.photo-zoom-tools button:hover{background:rgba(255,255,255,.22)}#zoomReset{min-width:54px;font-size:12px}.photo-lightbox img{transition:transform .12s ease-out;touch-action:none}@media(max-width:600px){.photo-zoom-tools{bottom:14px}.photo-zoom-tools button{min-width:42px;height:38px}}
 
 .photo-lightbox img{user-select:none;-webkit-user-drag:none}.photo-lightbox img[style*="scale(1."]{cursor:grab}
+
+.photo-lightbox img{position:relative;z-index:1}.photo-nav{z-index:2}.photo-zoom-tools{z-index:2}.photo-close{z-index:3}
