@@ -24,7 +24,7 @@ def discover():
         files = [item for item in folder.iterdir() if item.is_file()]
         images = sorted((item for item in files if item.suffix.casefold() in IMAGE_EXTENSIONS), key=lambda item: natural_key(item.name))
         models = sorted((item for item in files if item.suffix.casefold() == ".glb"), key=lambda item: natural_key(item.name))
-        archives = sorted((item for item in files if item.suffix.casefold() == ".zip"), key=lambda item: natural_key(item.name))
+        archives = sorted((item for item in files if item.suffix.casefold() in (".zip", ".rar")), key=lambda item: natural_key(item.name))
         if len(images) not in (4, 5) or len(models) != 2 or not archives:
             continue
         project_id = re.sub(r"[^a-z0-9]+", "-", folder.name.casefold()).strip("-") or "studio-project"
@@ -34,7 +34,7 @@ def discover():
             "model": asset_path(models[0]),
             "visibleModel": asset_path(models[1]),
             "images": [asset_path(image) for image in images],
-            "downloadZip": asset_path(archives[0]) if archives else "",
+            "downloadArchive": asset_path(archives[0]) if archives else "",
         })
     return projects
 
