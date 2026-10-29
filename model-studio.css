@@ -7,3 +7,41 @@
 
 .face-toggle select{height:29px;min-width:82px;padding:0 7px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);font:inherit;font-size:10px}.face-toggle:focus-within select{outline:2px solid rgba(90,120,100,.35);outline-offset:2px}
 @media(max-width:600px){.face-toggle select{height:27px;min-width:72px;font-size:9px}}
+
+
+/* Project previews and centered navigation controls. */
+.project-preview-list{position:absolute;z-index:4;top:12px;left:58px;bottom:54px;width:min(210px,25%);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--line);border-radius:5px;background:color-mix(in srgb,var(--panel) 92%,transparent);backdrop-filter:blur(8px)}
+.project-preview-list h2{margin:0;padding:10px 11px;border-bottom:1px solid var(--line);font-size:9px;letter-spacing:.13em;color:var(--muted)}
+.project-preview-items{display:grid;align-content:start;gap:5px;overflow-y:auto;padding:6px;scrollbar-width:thin}
+.project-preview-item{display:grid;grid-template-columns:55px minmax(0,1fr);align-items:center;gap:8px;min-width:0;padding:5px;border:1px solid transparent;border-radius:3px;background:transparent;color:var(--ink);text-align:left;cursor:pointer}
+.project-preview-item:hover,.project-preview-item:focus-visible{border-color:var(--line)}
+.project-preview-item[aria-current="true"]{border-color:var(--ink);background:color-mix(in srgb,var(--ink) 7%,transparent)}
+.project-preview-item img,.project-preview-placeholder{display:grid;width:55px;height:43px;place-items:center;object-fit:cover;background:color-mix(in srgb,var(--ink) 7%,transparent);color:var(--muted);font-size:11px}
+.project-preview-copy{display:grid;min-width:0;gap:3px}
+.project-preview-copy strong,.project-preview-copy small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-preview-copy strong{font-size:10px;font-weight:600}.project-preview-copy small{color:var(--muted);font-size:8px}
+.viewer-project-nav{position:absolute;z-index:6;top:50%;display:grid;width:40px;height:40px;place-items:center;padding:0;border:1px solid var(--line);border-radius:50%;background:color-mix(in srgb,var(--panel) 92%,transparent);color:var(--ink);font-size:25px;line-height:1;cursor:pointer;transform:translateY(-50%)}
+.viewer-project-nav.previous{left:10px}.viewer-project-nav.next{right:10px}.viewer-project-nav:disabled{opacity:.35;cursor:default}.viewer-project-nav:not(:disabled):hover{background:var(--ink);color:var(--bg)}
+.viewer-tools{z-index:7;align-items:center}.auto-rotate-control{display:flex;min-height:31px;align-items:center;gap:7px;padding:0 10px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink);font-size:10px;cursor:pointer}.auto-rotate-control input{accent-color:#353631}.viewer-tools #frameView{width:31px;height:31px}
+@media(max-width:600px){.project-preview-list{top:52px;left:49px;bottom:auto;width:min(158px,48%);max-height:47%}.project-preview-list h2{padding:8px;font-size:8px}.project-preview-items{gap:3px;padding:4px}.project-preview-item{grid-template-columns:42px minmax(0,1fr);gap:6px;padding:3px}.project-preview-item img,.project-preview-placeholder{width:42px;height:34px}.project-preview-copy strong{font-size:9px}.project-preview-copy small{font-size:7px}.viewer-project-nav{width:32px;height:32px;font-size:21px}.viewer-project-nav.previous{left:7px}.viewer-project-nav.next{right:7px}.auto-rotate-control{min-height:30px;padding:0 7px;font-size:9px}}
+
+
+/* Keep the project file card in its own column outside the preview frame. */
+.viewer-layout{display:grid;grid-template-columns:minmax(185px,220px) minmax(0,1fr);gap:12px;min-height:0}
+.viewer-layout>.project-preview-list{position:relative;inset:auto;width:auto;max-height:none;min-height:0}
+.viewer-layout>.project-preview-list h2{flex:0 0 auto}
+.viewer-layout>.project-preview-list .project-preview-items{min-height:0;align-content:start}
+.viewer-layout>.viewer{min-width:0;min-height:0}
+@media(max-width:600px){.viewer-layout{grid-template-columns:minmax(0,1fr);grid-template-rows:92px minmax(0,1fr);gap:7px}.viewer-layout>.project-preview-list{width:auto;max-height:none;min-height:0}.viewer-layout>.project-preview-list h2{padding:6px 8px}.viewer-layout>.project-preview-list .project-preview-items{display:flex;align-items:stretch;overflow-x:auto;overflow-y:hidden;padding:4px;gap:5px}.viewer-layout .project-preview-item{flex:0 0 146px;grid-template-columns:43px minmax(0,1fr);gap:6px}.viewer-layout .project-preview-item img,.viewer-layout .project-preview-placeholder{width:43px;height:37px}.viewer-layout>.viewer{min-height:0}}
+
+
+/* Larger project previews with labels beneath each image. */
+.viewer-layout .project-preview-item{grid-template-columns:minmax(0,1fr);grid-template-rows:112px auto;gap:6px;padding:6px}
+.viewer-layout .project-preview-item img,.viewer-layout .project-preview-placeholder{width:100%;height:112px;object-fit:cover}
+.viewer-layout .project-preview-item-copy{align-self:start}
+@media(max-width:600px){.viewer-layout .project-preview-item{flex:0 0 118px;grid-template-columns:minmax(0,1fr);grid-template-rows:62px auto;gap:4px;padding:4px}.viewer-layout .project-preview-item img,.viewer-layout .project-preview-placeholder{width:100%;height:62px}.viewer-layout .project-preview-copy strong{font-size:9px}.viewer-layout .project-preview-copy small{font-size:7px}}
+
+
+/* Center project imagery beneath the viewer and center crops in preview cards. */
+.photo-strip{justify-content:safe center}
+.viewer-layout .project-preview-item img,.viewer-layout .project-preview-placeholder{justify-self:center;object-position:center center}
